@@ -5,12 +5,15 @@ import com.nf147.oukele.entity.User;
 import com.nf147.oukele.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 @Service
 public class LoginServiceImpl implements LoginService {
     @Autowired
     private UserMapper userMapper;
+
+    @Transactional
     @Override
     public boolean canLogin(User user) {
 //        User result = userMapper.selectOne(user);
