@@ -2,10 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.test.dao.UserMapper">
+
     <select id="findUser" resultType="com.test.pojo.User">
         select * from user
     </select>
-    <select id="getUserById" resultType="com.test.pojo.User">
+
+    <select id="findUserByNameLike" resultType="com.test.pojo.User">
+        select * from user where name like #{values}
+    </select>
+
+    <select id="getUserById" parameterType="Integer" resultType="com.test.pojo.User">
         select * from user where id = #{id}
     </select>
+
+    <!--入参是对象，对象中的属性可以直接取出来，如#{name} 就是取user.name ！-->
+    <insert id="addUser" parameterType="com.test.pojo.User">
+        insert into user(name, password) values(#{name},#{password})
+    </insert>
+
+    <insert id="addUserByMap" parameterType="map">
+        insert into user(name, password) values(#{name},#{password})
+    </insert>
+
+    <update id="updateUser" parameterType="com.test.pojo.User">
+        update user set name = #{name} , password = #{password} where id = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="Integer">
+        delete from user where id = #{id}
+    </delete>
+
 </mapper>

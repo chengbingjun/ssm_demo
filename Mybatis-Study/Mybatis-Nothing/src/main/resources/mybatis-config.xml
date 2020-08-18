@@ -2,8 +2,22 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-    <environments default="develompent">
-        <environment id="develompent">
+    <!--引入外部配置文件，此处引入的是数据库配置文件-->
+    <properties resource="db.properties">
+
+    </properties>
+    <!--多环境配置，dev测试环境(读取外部配置文件的方式)，prod生产环境（在此xml中配置的方式）-->
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+        <environment id="prod">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
@@ -15,6 +29,6 @@
     </environments>
 
     <mappers>
-        <mapper resource="com/test/dao/UserMapper.xml"/>
+        <mapper resource="./com/test/dao/UserMapper.xml"/>
     </mappers>
 </configuration>
