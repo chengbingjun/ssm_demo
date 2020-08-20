@@ -34,6 +34,7 @@
     </environments>
 
     <mappers>
-        <mapper resource="./com/test/dao/UserMapper.xml"/>
+        <mapper resource="mapper/**/*.xml"/>
+        <mapper resource="mapper/DeptMapper.xml"/>
     </mappers>
 </configuration>
