@@ -4,8 +4,13 @@
 <configuration>
     <!--引入外部配置文件，此处引入的是数据库配置文件-->
     <properties resource="db.properties">
-
     </properties>
+    <!--mybaits的各种配置-->
+    <settings>
+        <!--日志-->
+        <setting name="logImpl" value="LOG4J2"/>
+    </settings>
+
     <!--多环境配置，dev测试环境(读取外部配置文件的方式)，prod生产环境（在此xml中配置的方式）-->
     <environments default="dev">
         <environment id="dev">

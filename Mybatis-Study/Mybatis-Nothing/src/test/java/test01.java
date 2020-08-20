@@ -1,10 +1,9 @@
 import com.test.dao.UserMapper;
 import com.test.pojo.User;
 import com.test.utils.MyBatisUtils;
-import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j2;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +12,7 @@ import java.util.Map;
  * @Author cbjun
  * @create 2020/8/17 15:35
  */
-@Log
+@Log4j2
 public class test01 {
 
     @Test
@@ -28,7 +27,7 @@ public class test01 {
                 System.out.println(e);
             });
         } catch (Exception e) {
-            log.info(e.getMessage());
+            log.error(e.getMessage());
         } finally {
             sqlSession.close();
         }
@@ -45,7 +44,7 @@ public class test01 {
             //提交事务
             sqlSession.commit();
         } catch (Exception e) {
-            log.info(e.getMessage());
+            log.error(e.getMessage());
         } finally {
             sqlSession.close();
         }
@@ -64,7 +63,7 @@ public class test01 {
             //提交事务
             sqlSession.commit();
         } catch (Exception e) {
-            log.info(e.getMessage());
+            log.error(e.getMessage());
         } finally {
             sqlSession.close();
         }
@@ -82,7 +81,7 @@ public class test01 {
             //提交事务
             sqlSession.commit();
         } catch (Exception e) {
-            log.info(e.getMessage());
+            log.error(e.getMessage());
         } finally {
             sqlSession.close();
         }
@@ -95,10 +94,10 @@ public class test01 {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
             List<User> users = userMapper.findUserByNameLike("%"+"王"+"%");
             users.forEach(e->{
-                System.out.println(e);
+                log.info(e);
             });
         } catch (Exception e) {
-            log.info(e.getMessage());
+            log.error(e.getMessage());
         } finally {
             sqlSession.close();
         }
