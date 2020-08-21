@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.dao.StudentMapper">
+
+    <resultMap id="ts01" type="com.test.pojo.Student">
+        <result column="sid" property="id"></result>
+        <result column="sname" property="name"></result>
+        <association property="teacher" javaType="com.test.pojo.Teacher">
+            <result column="tid" property="id"></result>
+            <result column="tname" property="name"></result>
+        </association>
+    </resultMap>
+
+    <resultMap id="ts02" type="com.test.vo.StudentVo">
+        <result column="sid" property="id"></result>
+        <result column="sname" property="name"></result>
+    </resultMap>
+
+    <select id="getStudent01" resultMap="ts01">
+        SELECT s.id as sid,s.name as sname ,t.id as tid ,t.name as tname from student s
+        LEFT JOIN teacher t on s.tid = t.id;
+    </select>
+
+    <select id="getStudent03" resultMap="ts02">
+        SELECT s.id as sid,s.name as sname ,t.id as tid ,t.name as tname from student s
+        LEFT JOIN teacher t on s.tid = t.id;
+    </select>
+
+</mapper>

@@ -135,8 +135,8 @@ public class test01 {
                 log.info(e);
             });
             log.info(dept);
-//            deptMapper.addDept(new Dept("总裁办","db02"));
-//            sqlSession.commit();
+            deptMapper.addDept(new Dept("总裁办","db02"));
+            sqlSession.commit();
         }catch (Exception e){
             log.error(e.getMessage());
         }finally {

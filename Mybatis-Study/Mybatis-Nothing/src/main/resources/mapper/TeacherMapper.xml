@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.dao.TeacherMapper">
+    <!--javaType:属性的类型，ofType:属性里面元素的类型，用在javaType是集合的情况下-->
+    <resultMap id="ts01" type="com.test.pojo.Teacher">
+        <result column="tid" property="id"></result>
+        <result column="tname" property="name"></result>
+        <collection property="students" javaType="ArrayList" ofType="com.test.pojo.Student">
+            <result column="sid" property="id"></result>
+            <result column="sname" property="name"></result>
+        </collection>
+    </resultMap>
+
+    <select id="getTeacher02" parameterType="int" resultMap="ts01">
+        SELECT s.id as sid,s.name as sname ,t.id as tid ,t.name as tname from teacher t
+        LEFT JOIN student s on s.tid = t.id where t.id = #{id};
+    </select>
+
+    <select id="getTeacher03" parameterType="int" resultMap="ts01">
+        SELECT s.id as sid,s.name as sname ,t.id as tid ,t.name as tname from teacher t
+        LEFT JOIN student s on s.tid = t.id;
+    </select>
+
+</mapper>

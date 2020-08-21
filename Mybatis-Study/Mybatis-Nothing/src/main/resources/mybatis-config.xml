@@ -34,7 +34,9 @@
     </environments>
 
     <mappers>
-        <mapper resource="mapper/**/*.xml"/>
+        <mapper resource="mapper/UserMapper.xml"/>
         <mapper resource="mapper/DeptMapper.xml"/>
+        <mapper resource="mapper/StudentMapper.xml"/>
+        <mapper resource="mapper/TeacherMapper.xml"/>
     </mappers>
 </configuration>
