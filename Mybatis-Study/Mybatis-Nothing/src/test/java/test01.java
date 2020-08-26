@@ -62,6 +62,8 @@ public class test01 {
             user.setName("王虎");
             user.setPassword("王虎666");
             userMapper.updateUser(user);
+
+
             userMapper.deleteUser(1);
             //提交事务
             sqlSession.commit();

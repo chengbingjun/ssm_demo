@@ -7,10 +7,7 @@ import org.junit.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Author cbjun
@@ -50,6 +47,28 @@ public class test03 {
 //            map.put("title","mybatis学习");
             map.put("author","李四");
             List<Blog> blogs = blogMapper.getBlogByChoose(map);
+            blogs.forEach(e -> {
+                log.info(e);
+            });
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        } finally {
+            sqlSession.close();
+        }
+
+    }
+
+    @Test
+    public void test03() {
+        SqlSession sqlSession = MyBatisUtils.getSqlSession();
+        try {
+            BlogMapper blogMapper = sqlSession.getMapper(BlogMapper.class);
+            Map map = new HashMap();
+            List<Integer> ids = new ArrayList<>();
+            ids.add(1);
+            ids.add(2);
+            map.put("ids",ids);
+            List<Blog> blogs = blogMapper.getBlogByForeach(map);
             blogs.forEach(e -> {
                 log.info(e);
             });

@@ -15,5 +15,7 @@ public interface BlogMapper {
     List<Blog> getBlogByIF(Map map);
     //动态sql(choose、when标签）类似switch-case
     List<Blog> getBlogByChoose(Map map);
+    //foreach标签
+    List<Blog> getBlogByForeach(Map map);
 
 }
