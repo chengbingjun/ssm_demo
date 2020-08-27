@@ -6,25 +6,25 @@
     <cache readOnly="true"/>
 
     <!--useCache表示该方法是否使用缓存-->
-    <select id="findUser" resultType="com.test.pojo.User" useCache="true">
+    <select id="findUser" resultType="com.test.com.cbj.pojo.User" useCache="true">
         select * from user
     </select>   
 
-    <select id="findUserByNameLike" resultType="com.test.pojo.User">
+    <select id="findUserByNameLike" resultType="com.test.com.cbj.pojo.User">
         select * from user where name like #{values}
     </select>
 
-    <select id="getUserById" parameterType="Integer" resultType="com.test.pojo.User">
+    <select id="getUserById" parameterType="Integer" resultType="com.test.com.cbj.pojo.User">
         select * from user where id = #{id}
     </select>
 
-    <select id="findUserByLimit" parameterType="com.test.pojo.Page" resultType="com.test.pojo.User">
+    <select id="findUserByLimit" parameterType="com.test.com.cbj.pojo.Page" resultType="com.test.com.cbj.pojo.User">
         select * from user limit #{startIndex},#{pageSize}
     </select>
 
     <!--入参是对象，对象中的属性可以直接取出来，如#{name} 就是取user.name ！-->
     <!--默认情况下增、删和改都会刷新缓存，但是可以通过flushCache来控制是否刷新缓存-->
-    <insert id="addUser" parameterType="com.test.pojo.User" flushCache="true">
+    <insert id="addUser" parameterType="com.test.com.cbj.pojo.User" flushCache="true">
         insert into user(name, password) values(#{name},#{password})
     </insert>
 
@@ -32,7 +32,7 @@
         insert into user(name, password) values(#{name},#{password})
     </insert>
 
-    <update id="updateUser" parameterType="com.test.pojo.User">
+    <update id="updateUser" parameterType="com.test.com.cbj.pojo.User">
         update user set name = #{name} , password = #{password} where id = #{id}
     </update>
 

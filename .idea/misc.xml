@@ -8,6 +8,7 @@
       <list>
         <option value="$PROJECT_DIR$/demo/pom.xml" />
         <option value="$PROJECT_DIR$/Mybatis-Study/pom.xml" />
+        <option value="$PROJECT_DIR$/Hibernate-Study/pom.xml" />
       </list>
     </option>
   </component>

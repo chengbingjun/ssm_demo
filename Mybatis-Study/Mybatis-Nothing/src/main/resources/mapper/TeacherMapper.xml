@@ -3,10 +3,10 @@
 
 <mapper namespace="com.test.dao.TeacherMapper">
     <!--javaType:属性的类型，ofType:属性里面元素的类型，用在javaType是集合的情况下-->
-    <resultMap id="ts01" type="com.test.pojo.Teacher">
+    <resultMap id="ts01" type="com.test.com.cbj.pojo.Teacher">
         <result column="tid" property="id"></result>
         <result column="tname" property="name"></result>
-        <collection property="students" javaType="ArrayList" ofType="com.test.pojo.Student">
+        <collection property="students" javaType="ArrayList" ofType="com.test.com.cbj.pojo.Student">
             <result column="sid" property="id"></result>
             <result column="sname" property="name"></result>
         </collection>
