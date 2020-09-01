@@ -3,7 +3,7 @@
 
 <mapper namespace="com.test.dao.BlogMapper">
 
-    <resultMap id="01" type="com.test.com.cbj.pojo.Blog">
+    <resultMap id="01" type="com.test.pojo.Blog">
         <result column="create_time" property="createTime"></result>
     </resultMap>
 

@@ -3,10 +3,10 @@
 
 <mapper namespace="com.test.dao.StudentMapper">
 
-    <resultMap id="ts01" type="com.test.com.cbj.pojo.Student">
+    <resultMap id="ts01" type="com.test.pojo.Student">
         <result column="sid" property="id"></result>
         <result column="sname" property="name"></result>
-        <association property="teacher" javaType="com.test.com.cbj.pojo.Teacher">
+        <association property="teacher" javaType="com.test.pojo.Teacher">
             <result column="tid" property="id"></result>
             <result column="tname" property="name"></result>
         </association>

@@ -4,16 +4,24 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+        <!--数据源-->
         <property name="connection.url">
             jdbc:mysql://localhost:3306/db02?useUnicode=true&amp;characterEncoding=UTF-8
         </property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
+        <!--日志打印sql-->
         <property name="show_sql">true</property>
+        <!--打印的sql进行格式化-->
         <property name="format_sql">true</property>
-        <!-- DB schema will be updated if needed -->
-        <!-- <property name="hbm2ddl.auto">update</property> -->
+        <!--数据库方言（mysql）-->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!--引入对象映射文件-->
         <mapping resource="mapper/User.hbm.xml"/>
+        <mapping resource="mapper/Student.hbm.xml"/>
+        <mapping resource="mapper/Teacher.hbm.xml"/>
+        <mapping resource="mapper/Customer.hbm.xml"/>
+        <mapping resource="mapper/Orders.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

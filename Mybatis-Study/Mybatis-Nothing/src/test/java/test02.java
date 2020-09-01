@@ -1,6 +1,5 @@
 import com.test.dao.StudentMapper;
 import com.test.dao.TeacherMapper;
-import com.test.dao.UserMapper;
 import com.test.pojo.Student;
 import com.test.pojo.Teacher;
 import com.test.utils.MyBatisUtils;

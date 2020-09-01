@@ -4,12 +4,13 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.cbj.pojo">
-    <class name="com.cbj.pojo.User" table="user">
+    <class name="com.cbj.pojo.Student" table="student" lazy="false">
         <id name="id" type="java.lang.Integer">
             <column name="id"/>
             <generator class="identity"/>
         </id>
         <property name="name" column="name"/>
-        <property name="password" column="password"/>
+        <!--多对一标签，name:实体类属性名；class：实体类属性类型；column：通过什么字段（数据库的）多表关联-->
+        <many-to-one name="teacher" class="com.cbj.pojo.Teacher" column="tid"/>
     </class>
 </hibernate-mapping>
